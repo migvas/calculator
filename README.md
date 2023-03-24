@@ -6,6 +6,9 @@ Browser calculator that can perform the following operations:
 - Multiply;
 - Divide
 
+Try it here:  
+https://migvas.github.io/calculator/
+
 Page Preview:  
 ![Alt text](./images/page-preview.png "Page Preview")
 
