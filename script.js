@@ -83,7 +83,7 @@ operators.forEach(operator => {
         if (!currentVal || isError) return;
 
         if (operator.id === 'equals') {
-            if (isResult) return;
+            if (isResult || !prev) return;
 
             secondaryDisplay.textContent += (' ' + currentVal + ' ' + operator.textContent);
             mainDisplay.textContent = operate(Number(prev), Number(currentVal), operation);
@@ -113,4 +113,25 @@ helpers.forEach(helper => {
     helper.addEventListener('click', () => {
         helperFunctions[helper.id]();
     })
+});
+
+const hashtable ={
+    Escape: 'clear',
+    Backspace: 'delete',
+    '%': 'percentage',
+    '+': 'add',
+    '-': 'subtract',
+    '*': 'multiply',
+    '/': 'divide',
+    '=': 'equals',
+    Enter: 'equals',
+    '.': 'decimal'
+};
+
+document.addEventListener('keydown', (e) => {
+    let key = e.key;
+    if(hashtable[key]) key = hashtable[key];
+    console.log(key)
+    const el = document.getElementById(key);
+    if(el) return el.click();
 });
